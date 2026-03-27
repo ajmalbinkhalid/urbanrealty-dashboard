@@ -1,0 +1,35 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": ["ultracite/biome/core", "ultracite/biome/next"],
+  "linter": {
+    "rules": {
+      "style": {
+        "useConsistentTypeDefinitions": {
+          "level": "error",
+          "options": {
+            "style": "type"
+          }
+        },
+        "noRestrictedImports": {
+          "level": "error",
+          "options": {
+            "paths": {
+              "next/navigation": {
+                "importNames": ["useRouter"],
+                "message": "Use the custom navigation from '@bprogress/next/app'"
+              }
+            }
+          }
+        }
+      },
+      "complexity": {
+        "noExcessiveCognitiveComplexity": {
+          "level": "error",
+          "options": {
+            "maxAllowedComplexity": 40
+          }
+        }
+      }
+    }
+  }
+}
